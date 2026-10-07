@@ -37,11 +37,31 @@ if __name__ == "__main__":
         printBoard(xState, zState)
         if(turn == 1):
             print("X's Chance")
-            value = int(input("Please enter a value: "))
+            try:
+                value = int(input("Please enter a value: "))
+                if value < 0 or value > 8:
+                    print("Invalid input! Please enter a number between 0 and 8.")
+                    continue
+                if xState[value] == 1 or zState[value] == 1:
+                    print("Invalid move! Position already taken. Try again.")
+                    continue
+            except ValueError:
+                print("Invalid input! Please enter a number between 0 and 8.")
+                continue
             xState[value] = 1
         else:
             print("O's Chance")
-            value = int(input("Please enter a value: "))
+            try:
+                value = int(input("Please enter a value: "))
+                if value < 0 or value > 8:
+                    print("Invalid input! Please enter a number between 0 and 8.")
+                    continue
+                if xState[value] == 1 or zState[value] == 1:
+                    print("Invalid move! Position already taken. Try again.")
+                    continue
+            except ValueError:
+                print("Invalid input! Please enter a number between 0 and 8.")
+                continue
             zState[value] = 1
         cwin = checkWin(xState, zState)
         if(cwin != -1):
