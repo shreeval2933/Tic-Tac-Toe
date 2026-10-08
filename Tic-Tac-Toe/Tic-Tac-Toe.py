@@ -45,7 +45,10 @@ if __name__ == "__main__":
             zState[value] = 1
         cwin = checkWin(xState, zState)
         if(cwin != -1):
-            print("Match over")
+                    print("Match over")
+                    break
+        if xState.count(1) + zState.count(1) == 9:
+            print("Match Draw")
             break
         
         turn = 1 - turn
